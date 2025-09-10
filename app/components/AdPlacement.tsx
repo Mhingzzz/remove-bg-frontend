@@ -35,17 +35,22 @@ const AdPlacement: React.FC<AdPlacementProps> = ({
 					customSlot ||
 					process.env.NEXT_PUBLIC_ADSENSE_HEADER_SLOT ||
 					"1234567890",
-				format: "horizontal" as const,
-				style: { width: "100%", height: "90px" },
-				className: "mb-4",
+				format: "auto" as const,
+				style: { width: "100%", minHeight: "120px", height: "auto" },
+				className: "mb-6",
 			},
 			sidebar: {
 				slot:
 					customSlot ||
 					process.env.NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT ||
 					"1234567891",
-				format: "vertical" as const,
-				style: { width: "300px", height: "600px" },
+				format: "auto" as const,
+				style: {
+					width: "100%",
+					minHeight: "600px",
+					height: "auto",
+					maxWidth: "320px",
+				},
 				className: "hidden lg:block",
 			},
 			content: {
@@ -53,17 +58,17 @@ const AdPlacement: React.FC<AdPlacementProps> = ({
 					customSlot ||
 					process.env.NEXT_PUBLIC_ADSENSE_CONTENT_SLOT ||
 					"1234567892",
-				format: "rectangle" as const,
-				style: { width: "100%", height: "250px" },
-				className: "my-8",
+				format: "auto" as const,
+				style: { width: "100%", minHeight: "300px", height: "auto" },
+				className: "my-10",
 			},
 			footer: {
 				slot:
 					customSlot ||
 					process.env.NEXT_PUBLIC_ADSENSE_FOOTER_SLOT ||
 					"1234567893",
-				format: "horizontal" as const,
-				style: { width: "100%", height: "90px" },
+				format: "auto" as const,
+				style: { width: "100%", minHeight: "120px", height: "auto" },
 				className: "mt-8",
 			},
 			"mobile-banner": {
@@ -72,7 +77,7 @@ const AdPlacement: React.FC<AdPlacementProps> = ({
 					process.env.NEXT_PUBLIC_ADSENSE_MOBILE_SLOT ||
 					"1234567894",
 				format: "auto" as const,
-				style: { width: "100%", height: "50px" },
+				style: { width: "100%", height: "60px" },
 				className:
 					"block lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg",
 			},
@@ -108,6 +113,7 @@ const AdPlacement: React.FC<AdPlacementProps> = ({
 				style={adConfig.style}
 				className="border border-gray-200 rounded-lg overflow-hidden"
 				enabled={enabled}
+				position={position}
 			/>
 		</div>
 	);

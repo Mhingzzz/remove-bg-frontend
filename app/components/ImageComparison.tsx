@@ -35,7 +35,7 @@ export default function ImageComparison({
 		onResetImages();
 		// Scroll to top where upload section is
 		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
+			window.scrollTo({ top: 0, behavior: "smooth" });
 		}, 100);
 	};
 
@@ -72,7 +72,7 @@ export default function ImageComparison({
 
 			// Track download if callback is provided
 			if (onDownload) {
-				const format = filename.split('.').pop() || 'png';
+				const format = filename.split(".").pop() || "png";
 				onDownload(format, blob.size);
 			}
 
@@ -237,7 +237,7 @@ export default function ImageComparison({
 							className="space-y-4"
 						>
 							<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
-								Interactive Comparison / เปรียบเทียบแบบโต้ตอบ
+								{t("comparison.interactiveComparison")}
 							</h3>
 
 							<div

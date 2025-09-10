@@ -10,7 +10,7 @@ interface GoogleAdsProps {
 }
 
 // Google Analytics/Ads types
-type GtagCommand = 'config' | 'event' | 'js' | 'set';
+type GtagCommand = "config" | "event" | "js" | "set";
 type GtagEventParams = {
 	[key: string]: string | number | boolean;
 };
@@ -18,7 +18,11 @@ type GtagEventParams = {
 declare global {
 	interface Window {
 		adsbygoogle: Record<string, unknown>[];
-		gtag: (command: GtagCommand, target: string, params?: GtagEventParams) => void;
+		gtag: (
+			command: GtagCommand,
+			target: string,
+			params?: GtagEventParams
+		) => void;
 	}
 }
 

@@ -38,10 +38,10 @@ export default function LanguageSwitcher({
 
 	const handleLanguageChange = (langCode: LanguageCode) => {
 		const previousLanguage = currentLanguage;
-		
+
 		// Track language change
 		GoogleAdsTracking.trackLanguageChange(previousLanguage, langCode);
-		
+
 		setLanguage(langCode);
 		setIsOpen(false);
 	};

@@ -13,6 +13,7 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import {
 	HeaderAd,
 	ContentAd,
+	SidebarAd,
 	FooterAd,
 	MobileBannerAd,
 } from "./components/AdPlacement";
@@ -35,11 +36,8 @@ interface ProcessingState {
 
 export default function Home() {
 	const { t } = useLanguage();
-	const {
-		trackFileUpload,
-		trackProcessingComplete,
-		trackError,
-	} = useGoogleAds();
+	const { trackFileUpload, trackProcessingComplete, trackError } =
+		useGoogleAds();
 
 	// Initialize tracking hooks
 	useScrollTracking();
@@ -152,8 +150,8 @@ export default function Home() {
 						</div>
 					</motion.div>
 
-					<div className="flex items-center space-x-4">
-						{/* <motion.div
+					{/* <div className="flex items-center space-x-4"> */}
+					{/* <motion.div
 							initial={{ opacity: 0, x: 20 }}
 							animate={{ opacity: 1, x: 0 }}
 							className="hidden md:flex items-center space-x-6"
@@ -173,8 +171,8 @@ export default function Home() {
 								</div>
 							</div>
 						</motion.div> */}
-						<LanguageSwitcher variant="compact" />
-					</div>
+					<LanguageSwitcher variant="compact" />
+					{/* </div> */}
 				</div>
 			</header>
 
@@ -182,79 +180,102 @@ export default function Home() {
 			{/* <HeaderAd enabled={true} /> */}
 			<HeaderAd />
 
-			{/* Hero Section */}
+			{/* Hero Section with Sidebar Layout */}
 			<section className="py-16 px-4">
-				<div className="max-w-6xl mx-auto text-center">
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8 }}
-						className="space-y-6 mb-12"
-					>
-						<h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-							<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-								{t("hero.title").split(" ")[0]}
-							</span>
-							<br />
-							{t("hero.title").split(" ").slice(1).join(" ")}
-						</h1>
-
-						<div className="space-y-2">
-							<p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-								{t("hero.subtitle")}
-							</p>
-						</div>
-
-						<div className="flex flex-wrap justify-center gap-4 text-sm">
-							<span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">
-								✓ {t("hero.features.noWatermarks")}
-							</span>
-							<span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
-								✓ {t("hero.features.highQuality")}
-							</span>
-							<span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
-								✓ {t("hero.features.privacyProtected")}
-							</span>
-						</div>
-					</motion.div>
-
-					{/* Upload Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.2 }}
-					>
-						<ImageUploader
-							onImageUpload={handleImageUpload}
-							isProcessing={state.isProcessing}
-						/>
-					</motion.div>
-
-					{/* Content Ad */}
-					<ContentAd />
-
-					{/* Results Section */}
-					{(state.originalImage || state.processedImage) && (
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8 }}
-							className="mt-16 results-section"
-						>
-							<div className="flex items-center justify-center mb-8">
-								<h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-									Results
-								</h2>
+				<div className="max-w-7xl mx-auto">
+					{/* Main content grid with left + right sidebar */}
+					<div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+						{/* Sidebar Left */}
+						<div className="lg:col-span-1">
+							<div className="sticky top-24 space-y-6">
+								<SidebarAd enabled={true} />
 							</div>
+						</div>
 
-							<ImageComparison
-								originalImage={state.originalImage!}
-								processedImage={state.processedImage}
-								isProcessing={state.isProcessing}
-								onResetImages={resetImages}
-							/>
-						</motion.div>
-					)}
+						{/* Main Content Area (3/5 width on desktop) */}
+						<div className="lg:col-span-3">
+							<div className="text-center">
+								{/* Hero */}
+								<motion.div
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.8 }}
+									className="space-y-6 mb-12"
+								>
+									<h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
+										<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+											{t("hero.title").split(" ")[0]}
+										</span>
+										<br />
+										{t("hero.title").split(" ").slice(1).join(" ")}
+									</h1>
+
+									<div className="space-y-2">
+										<p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+											{t("hero.subtitle")}
+										</p>
+									</div>
+
+									<div className="flex flex-wrap justify-center gap-4 text-sm">
+										<span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">
+											✓ {t("hero.features.noWatermarks")}
+										</span>
+										<span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
+											✓ {t("hero.features.highQuality")}
+										</span>
+										<span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+											✓ {t("hero.features.privacyProtected")}
+										</span>
+									</div>
+								</motion.div>
+
+								{/* Upload Section */}
+								<motion.div
+									initial={{ opacity: 0, y: 30 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.8, delay: 0.2 }}
+								>
+									<ImageUploader
+										onImageUpload={handleImageUpload}
+										isProcessing={state.isProcessing}
+									/>
+								</motion.div>
+
+								{/* Content Ad */}
+								{/* <ContentAd enabled={true} /> */}
+
+								{/* Results Section */}
+								{(state.originalImage || state.processedImage) && (
+									<motion.div
+										initial={{ opacity: 0, y: 30 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.8 }}
+										className="mt-16 results-section"
+									>
+										<div className="flex items-center justify-center mb-8">
+											<h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+												Results
+											</h2>
+										</div>
+
+										<ImageComparison
+											originalImage={state.originalImage!}
+											processedImage={state.processedImage}
+											isProcessing={state.isProcessing}
+											onResetImages={resetImages}
+										/>
+									</motion.div>
+								)}
+							</div>
+						</div>
+
+						{/* Sidebar Right */}
+						<div className="lg:col-span-1">
+							<div className="sticky top-24 space-y-6">
+								<SidebarAd enabled={true} />
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
