@@ -30,6 +30,14 @@ export default function ImageComparison({
 	const comparisonRef = useRef<HTMLDivElement>(null);
 	const { t } = useLanguage();
 
+	const handleResetWithScroll = () => {
+		onResetImages();
+		// Scroll to top where upload section is
+		setTimeout(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}, 100);
+	};
+
 	const handleMouseDown = () => {
 		setIsDragging(true);
 	};
@@ -137,7 +145,7 @@ export default function ImageComparison({
 						</h3>
 						<div
 							className="relative group cursor-pointer"
-							onClick={onResetImages}
+							onClick={handleResetWithScroll}
 						>
 							<img
 								src={originalImage}
@@ -175,12 +183,12 @@ export default function ImageComparison({
 							</h3>
 							<div
 								className="relative group cursor-pointer aspect-square"
-								onClick={onResetImages}
+								onClick={handleResetWithScroll}
 							>
 								<img
 									src={originalImage}
 									alt="Original"
-									className="w-full h-full object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+									className="w-full h-full object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-gray-50 dark:bg-gray-800"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
 								<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -212,11 +220,11 @@ export default function ImageComparison({
 							<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
 								{t("comparison.backgroundRemoved")}
 							</h3>
-							<div className="relative group aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg">
+							<div className="relative group aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg flex items-center justify-center">
 								<img
 									src={processedImage}
 									alt="Processed"
-									className="w-full h-full object-cover rounded-lg shadow-lg"
+									className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
 									style={{
 										background:
 											"repeating-conic-gradient(#f0f0f0 0% 25%, transparent 0% 50%) 50% / 20px 20px",
