@@ -8,23 +8,27 @@ import {
 } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface ImageComparisonProps {
 	originalImage: string;
 	processedImage: string | null;
 	isProcessing: boolean;
+	onResetImages: () => void;
 }
 
 export default function ImageComparison({
 	originalImage,
 	processedImage,
 	isProcessing,
+	onResetImages,
 }: ImageComparisonProps) {
 	const [sliderPosition, setSliderPosition] = useState(50);
 	const [isDragging, setIsDragging] = useState(false);
 	const [showComparison, setShowComparison] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const comparisonRef = useRef<HTMLDivElement>(null);
+	const { t } = useLanguage();
 
 	const handleMouseDown = () => {
 		setIsDragging(true);
@@ -89,7 +93,7 @@ export default function ImageComparison({
 	if (!originalImage) return null;
 
 	return (
-		<div className="w-full max-w-4xl mx-auto space-y-6">
+		<div className="w-full max-w-2xl mx-auto space-y-6">
 			{/* Toggle Button */}
 			<div className="flex justify-center">
 				<motion.button
@@ -116,7 +120,46 @@ export default function ImageComparison({
 
 			{/* Images Display */}
 			<div ref={comparisonRef} className="grid gap-6">
-				{showComparison && processedImage ? (
+				{!processedImage ? (
+					// Show only original image when processing or no processed image
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						className="space-y-4"
+					>
+						<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
+							{isProcessing
+								? t("comparison.processing")
+								: t("comparison.originalImage")}
+						</h3>
+						<div
+							className="relative group cursor-pointer"
+							onClick={onResetImages}
+						>
+							<img
+								src={originalImage}
+								alt="Original"
+								className="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+							<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+								<div className="bg-white/90 dark:bg-gray-800/90 rounded-lg px-4 py-2">
+									<span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+										{t("comparison.clickToUpload")}
+									</span>
+								</div>
+							</div>
+							{isProcessing && (
+								<div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
+									<div className="text-center text-white">
+										<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-2"></div>
+										<span className="text-sm">Processing...</span>
+									</div>
+								</div>
+							)}
+						</div>
+					</motion.div>
+				) : showComparison ? (
 					// Side by side comparison
 					<div className="grid md:grid-cols-2 gap-6">
 						<motion.div
@@ -127,19 +170,30 @@ export default function ImageComparison({
 							<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
 								Original / ต้นฉบับ
 							</h3>
-							<div className="relative group">
+							<div
+								className="relative group cursor-pointer"
+								onClick={onResetImages}
+							>
 								<img
 									src={originalImage}
 									alt="Original"
-									className="w-full rounded-lg shadow-lg"
+									className="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
+								<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+									<div className="bg-white/90 dark:bg-gray-800/90 rounded-lg px-4 py-2">
+										<span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+											Click to upload new image
+										</span>
+									</div>
+								</div>
 								<motion.button
 									whileHover={{ scale: 1.1 }}
 									whileTap={{ scale: 0.9 }}
-									onClick={() =>
-										downloadImage(originalImage, "original-image.png")
-									}
+									onClick={(e) => {
+										e.stopPropagation();
+										downloadImage(originalImage, "original-image.png");
+									}}
 									className="absolute bottom-3 right-3 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
 								>
 									<ArrowDownTrayIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />

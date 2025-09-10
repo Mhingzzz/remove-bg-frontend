@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
 	SparklesIcon,
@@ -15,6 +14,11 @@ import ImageComparison from "./components/ImageComparison";
 import FeatureSection from "./components/FeatureSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import { useState } from "react";
+
+// i18n
+import { useLanguage } from "./contexts/LanguageContext";
 
 interface ProcessingState {
 	isProcessing: boolean;
@@ -24,6 +28,7 @@ interface ProcessingState {
 }
 
 export default function Home() {
+	const { t } = useLanguage();
 	const [state, setState] = useState<ProcessingState>({
 		isProcessing: false,
 		originalImage: null,
@@ -62,7 +67,15 @@ export default function Home() {
 				isProcessing: false,
 			}));
 
-			toast.success("Background removed successfully! / ลบพื้นหลังสำเร็จแล้ว!");
+			toast.success(t("upload.uploadSuccess"));
+
+			// Auto-scroll to comparison section
+			setTimeout(() => {
+				const resultsSection = document.querySelector(".results-section");
+				if (resultsSection) {
+					resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+				}
+			}, 100);
 		} catch (error) {
 			console.error("Error processing image:", error);
 			setState((prev) => ({
@@ -70,9 +83,7 @@ export default function Home() {
 				isProcessing: false,
 			}));
 
-			toast.error(
-				"Failed to process image. Please try again. / ไม่สามารถประมวลผลภาพได้ กรุณาลองใหม่อีกครั้ง"
-			);
+			toast.error(t("upload.uploadError"));
 		}
 	};
 
@@ -100,34 +111,37 @@ export default function Home() {
 						</div>
 						<div>
 							<h1 className="text-xl font-bold text-gray-900 dark:text-white">
-								RemoveBG AI
+								{t("common.appName")}
 							</h1>
 							<p className="text-xs text-gray-600 dark:text-gray-400">
-								Professional Background Remover
+								{t("common.tagline")}
 							</p>
 						</div>
 					</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						className="hidden md:flex items-center space-x-6"
-					>
-						<div className="flex items-center space-x-4 text-sm">
-							<div className="flex items-center space-x-1 text-green-600 dark:text-green-400">
-								<BoltIcon className="h-4 w-4" />
-								<span>Fast AI</span>
+					<div className="flex items-center space-x-4">
+						<motion.div
+							initial={{ opacity: 0, x: 20 }}
+							animate={{ opacity: 1, x: 0 }}
+							className="hidden md:flex items-center space-x-6"
+						>
+							<div className="flex items-center space-x-4 text-sm">
+								<div className="flex items-center space-x-1 text-green-600 dark:text-green-400">
+									<BoltIcon className="h-4 w-4" />
+									<span>{t("common.fast")}</span>
+								</div>
+								<div className="flex items-center space-x-1 text-blue-600 dark:text-blue-400">
+									<ShieldCheckIcon className="h-4 w-4" />
+									<span>{t("common.secure")}</span>
+								</div>
+								<div className="flex items-center space-x-1 text-purple-600 dark:text-purple-400">
+									<SparklesIcon className="h-4 w-4" />
+									<span>{t("common.free")}</span>
+								</div>
 							</div>
-							<div className="flex items-center space-x-1 text-blue-600 dark:text-blue-400">
-								<ShieldCheckIcon className="h-4 w-4" />
-								<span>Secure</span>
-							</div>
-							<div className="flex items-center space-x-1 text-purple-600 dark:text-purple-400">
-								<SparklesIcon className="h-4 w-4" />
-								<span>Free</span>
-							</div>
-						</div>
-					</motion.div>
+						</motion.div>
+						<LanguageSwitcher variant="compact" />
+					</div>
 				</div>
 			</header>
 
@@ -142,33 +156,27 @@ export default function Home() {
 					>
 						<h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
 							<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-								AI-Powered
+								{t("hero.title").split(" ")[0]}
 							</span>
 							<br />
-							Background Remover
+							{t("hero.title").split(" ").slice(1).join(" ")}
 						</h1>
 
 						<div className="space-y-2">
 							<p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-								Remove backgrounds from images instantly with cutting-edge AI
-								technology. Professional quality results in seconds, completely
-								free.
-							</p>
-							<p className="text-lg text-gray-500 dark:text-gray-500 max-w-3xl mx-auto">
-								ลบพื้นหลังจากรูปภาพได้ทันทีด้วยเทคโนโลยี AI ล้ำสมัย
-								ผลลัพธ์คุณภาพระดับมืออาชีพในไม่กี่วินาทีโดยไม่เสียค่าใช้จ่าย
+								{t("hero.subtitle")}
 							</p>
 						</div>
 
 						<div className="flex flex-wrap justify-center gap-4 text-sm">
 							<span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full">
-								✓ No Watermarks / ไม่มีลายน้ำ
+								✓ {t("hero.features.noWatermarks")}
 							</span>
 							<span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
-								✓ High Quality / คุณภาพสูง
+								✓ {t("hero.features.highQuality")}
 							</span>
 							<span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
-								✓ Privacy Protected / ปกป้องความเป็นส่วนตัว
+								✓ {t("hero.features.privacyProtected")}
 							</span>
 						</div>
 					</motion.div>
@@ -191,28 +199,19 @@ export default function Home() {
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8 }}
-							className="mt-16"
+							className="mt-16 results-section"
 						>
-							<div className="flex items-center justify-between mb-8">
+							<div className="flex items-center justify-center mb-8">
 								<h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-									Results / ผลลัพธ์
+									Results
 								</h2>
-								{!state.isProcessing && (
-									<motion.button
-										whileHover={{ scale: 1.05 }}
-										whileTap={{ scale: 0.95 }}
-										onClick={resetImages}
-										className="px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-									>
-										Upload New Image / อัปโหลดภาพใหม่
-									</motion.button>
-								)}
 							</div>
 
 							<ImageComparison
 								originalImage={state.originalImage!}
 								processedImage={state.processedImage}
 								isProcessing={state.isProcessing}
+								onResetImages={resetImages}
 							/>
 						</motion.div>
 					)}
@@ -223,7 +222,7 @@ export default function Home() {
 			<FeatureSection />
 
 			{/* FAQ Section */}
-			<FAQSection />
+			{/* <FAQSection /> */}
 
 			{/* CTA Section */}
 			<section className="py-16 px-4 bg-gradient-to-br from-blue-600 to-purple-600">
@@ -234,24 +233,16 @@ export default function Home() {
 						transition={{ duration: 0.8 }}
 						className="space-y-6"
 					>
-						<h2 className="text-3xl md:text-4xl font-bold">
-							Ready to Remove Backgrounds?
-						</h2>
-						<p className="text-xl opacity-90">
-							Join thousands of users who trust our AI-powered background
-							removal tool.
-						</p>
-						<p className="text-lg opacity-80">
-							เข้าร่วมกับผู้ใช้งานหลายพันคนที่เชื่อมั่นในเครื่องมือลบพื้นหลังด้วย
-							AI ของเรา
-						</p>
+						<h2 className="text-3xl md:text-4xl font-bold">{t("cta.title")}</h2>
+						<p className="text-xl opacity-90">{t("cta.subtitle")}</p>
+
 						<motion.button
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
 							className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors"
 						>
-							Start Removing Backgrounds / เริ่มลบพื้นหลัง
+							{t("hero.cta")}
 						</motion.button>
 					</motion.div>
 				</div>

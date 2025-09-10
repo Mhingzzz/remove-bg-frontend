@@ -9,63 +9,43 @@ import {
 	GlobeAltIcon,
 	HeartIcon,
 } from "@heroicons/react/24/outline";
-
-const features = [
-	{
-		icon: SparklesIcon,
-		title: "AI-Powered Precision",
-		titleTh: "ความแม่นยำด้วย AI",
-		description:
-			"Advanced AI algorithms ensure perfect background removal with natural edge detection.",
-		descriptionTh:
-			"อัลกอริทึม AI ขั้นสูงรับประกันการลบพื้นหลังที่สมบูรณ์แบบพร้อมการตรวจจับขอบที่เป็นธรรมชาติ",
-	},
-	{
-		icon: BoltIcon,
-		title: "Lightning Fast",
-		titleTh: "เร็วเหมือนสายฟ้า",
-		description:
-			"Process your images in seconds with our optimized cloud infrastructure.",
-		descriptionTh:
-			"ประมวลผลรูปภาพของคุณในไม่กี่วินาทีด้วยโครงสร้างคลาวด์ที่ปรับปรุงแล้ว",
-	},
-	{
-		icon: ShieldCheckIcon,
-		title: "Privacy Protected",
-		titleTh: "ปกป้องความเป็นส่วนตัว",
-		description:
-			"Your images are processed securely and deleted immediately after processing.",
-		descriptionTh:
-			"รูปภาพของคุณได้รับการประมวลผลอย่างปลอดภัยและลบทิ้งทันทีหลังการประมวลผล",
-	},
-	{
-		icon: DevicePhoneMobileIcon,
-		title: "Mobile Optimized",
-		titleTh: "เพิ่มประสิทธิภาพสำหรับมือถือ",
-		description:
-			"Perfect experience on all devices - desktop, tablet, and mobile.",
-		descriptionTh:
-			"ประสบการณ์ที่สมบูรณ์แบบบนทุกอุปกรณ์ - เดสก์ท็อป แท็บเล็ต และมือถือ",
-	},
-	{
-		icon: GlobeAltIcon,
-		title: "Multiple Formats",
-		titleTh: "รองรับหลายรูปแบบ",
-		description: "Support for JPG, PNG, WebP, and more image formats.",
-		descriptionTh: "รองรับรูปแบบไฟล์ JPG, PNG, WebP และอื่นๆ อีกมากมาย",
-	},
-	{
-		icon: HeartIcon,
-		title: "Completely Free",
-		titleTh: "ฟรีโดยสมบูรณ์",
-		description:
-			"No watermarks, no subscriptions, no hidden fees. Forever free.",
-		descriptionTh:
-			"ไม่มีลายน้ำ ไม่มีการสมัครสมาชิก ไม่มีค่าธรรมเนียมซ่อน ฟรีตลอดไป",
-	},
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function FeatureSection() {
+	const { t } = useLanguage();
+
+	const features = [
+		{
+			icon: SparklesIcon,
+			title: `${t("features.items.aiPowered.title")}`,
+			description: `${t("features.items.aiPowered.description")}`,
+		},
+		{
+			icon: BoltIcon,
+			title: `${t("features.items.lightningFast.title")}`,
+			description: `${t("features.items.lightningFast.description")}`,
+		},
+		{
+			icon: ShieldCheckIcon,
+			title: `${t("features.items.privacyProtected.title")}`,
+			description: `${t("features.items.privacyProtected.description")}`,
+		},
+		{
+			icon: DevicePhoneMobileIcon,
+			title: `${t("features.items.mobileOptimized.title")}`,
+			description: `${t("features.items.mobileOptimized.description")}`,
+		},
+		{
+			icon: GlobeAltIcon,
+			title: `${t("features.items.multipleFormats.title")}`,
+			description: `${t("features.items.multipleFormats.description")}`,
+		},
+		{
+			icon: HeartIcon,
+			title: `${t("features.items.completelyFree.title")}`,
+			description: `${t("features.items.completelyFree.description")}`,
+		},
+	];
 	return (
 		<section className="py-16 px-4">
 			<div className="max-w-6xl mx-auto">
@@ -78,9 +58,7 @@ export default function FeatureSection() {
 					<h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
 						Why Choose Our Background Remover?
 					</h2>
-					<p className="text-lg text-gray-600 dark:text-gray-400 mb-2">
-						ทำไมต้องเลือกเครื่องมือลบพื้นหลังของเรา?
-					</p>
+
 					<p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
 						Professional-grade background removal powered by cutting-edge AI
 						technology. Perfect for e-commerce, social media, and creative
@@ -104,14 +82,8 @@ export default function FeatureSection() {
 							<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
 								{feature.title}
 							</h3>
-							<p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-3">
-								{feature.titleTh}
-							</p>
 							<p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
 								{feature.description}
-							</p>
-							<p className="text-gray-500 dark:text-gray-500 text-xs leading-relaxed">
-								{feature.descriptionTh}
 							</p>
 						</motion.div>
 					))}

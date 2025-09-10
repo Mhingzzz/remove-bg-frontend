@@ -1,0 +1,197 @@
+{
+	"common": {
+		"appName": "RemoveBG AI",
+		"tagline": "Professional Background Remover",
+		"loading": "Loading...",
+		"error": "Error",
+		"success": "Success",
+		"retry": "Retry",
+		"cancel": "Cancel",
+		"download": "Download",
+		"upload": "Upload",
+		"processing": "Processing...",
+		"done": "Done",
+		"free": "Free",
+		"fast": "Fast AI",
+		"secure": "Secure"
+	},
+	"hero": {
+		"title": "AI-Powered Background Remover",
+		"subtitle": "Remove backgrounds from images instantly with cutting-edge AI technology. Professional quality results in seconds, completely free.",
+		"features": {
+			"noWatermarks": "No Watermarks",
+			"highQuality": "High Quality",
+			"privacyProtected": "Privacy Protected"
+		},
+		"cta": "Start Removing Backgrounds"
+	},
+	"upload": {
+		"title": "Upload your image",
+		"dragDrop": "Drag & drop an image or click to browse",
+		"formats": "Supported formats: JPG, PNG, WebP, BMP, GIF",
+		"chooseFile": "Choose File",
+		"dropHere": "Drop your image here",
+		"releaseToUpload": "Release to upload",
+		"clickToChange": "Click to change image",
+		"clickToUploadDifferent": "Click to upload a different image",
+		"uploadImage": "Upload your image",
+		"dragDropOrClick": "Drag & drop an image or click to browse",
+		"supportedFormats": "Supported formats: JPG, PNG, WebP, BMP, GIF",
+		"maxSize": "Maximum size: 10MB",
+		"processing": "Processing...",
+		"uploadSuccess": "Background removed successfully!",
+		"uploadError": "Failed to process image. Please try again.",
+		"fileSizeError": "File size must be less than 10MB",
+		"fileTypeError": "Please upload an image file",
+		"errors": {
+			"fileTooLarge": "File size must be less than 10MB",
+			"invalidFormat": "Please upload an image file",
+			"uploadFailed": "Upload failed. Please try again."
+		}
+	},
+	"comparison": {
+		"processing": "Processing...",
+		"originalImage": "Original Image",
+		"clickToUpload": "Click to upload new image",
+		"showComparison": "Show Comparison",
+		"hideComparison": "Hide Comparison",
+		"interactiveComparison": "Interactive Comparison",
+		"dragSlider": "Drag the slider to compare",
+		"original": "Original",
+		"backgroundRemoved": "Background Removed"
+	},
+	"processing": {
+		"title": "Processing...",
+		"description": "Our AI is removing the background from your image",
+		"success": "Background removed successfully!",
+		"failed": "Failed to process image. Please try again."
+	},
+	"results": {
+		"title": "Results",
+		"original": "Original",
+		"processed": "Background Removed",
+		"showComparison": "Show Comparison",
+		"hideComparison": "Hide Comparison",
+		"interactiveComparison": "Interactive Comparison",
+		"dragToCompare": "Drag the slider to compare",
+		"downloadResult": "Download Result",
+		"downloadComparison": "Download Comparison",
+		"uploadNewImage": "Upload New Image",
+		"downloadStarted": "Download started!",
+		"downloadFailed": "Download failed",
+		"comparisonDownloaded": "Comparison downloaded!",
+		"comparisonDownloadFailed": "Failed to download comparison"
+	},
+	"features": {
+		"title": "Why Choose Our Background Remover?",
+		"subtitle": "Professional-grade background removal powered by cutting-edge AI technology. Perfect for e-commerce, social media, and creative projects.",
+		"items": {
+			"aiPowered": {
+				"title": "AI-Powered Precision",
+				"description": "Advanced AI algorithms ensure perfect background removal with natural edge detection."
+			},
+			"lightningFast": {
+				"title": "Lightning Fast",
+				"description": "Process your images in seconds with our optimized cloud infrastructure."
+			},
+			"privacyProtected": {
+				"title": "Privacy Protected",
+				"description": "Your images are processed securely and deleted immediately after processing."
+			},
+			"mobileOptimized": {
+				"title": "Mobile Optimized",
+				"description": "Perfect experience on all devices - desktop, tablet, and mobile."
+			},
+			"multipleFormats": {
+				"title": "Multiple Formats",
+				"description": "Support for JPG, PNG, WebP, and more image formats."
+			},
+			"completelyFree": {
+				"title": "Completely Free",
+				"description": "No watermarks, no subscriptions, no hidden fees. Forever free."
+			}
+		}
+	},
+	"faq": {
+		"title": "Frequently Asked Questions",
+		"items": {
+			"accuracy": {
+				"question": "How accurate is the AI background removal?",
+				"answer": "Our AI achieves 95%+ accuracy with advanced edge detection algorithms. It works best with clear subject-background contrast and handles complex elements like hair, fur, and transparent objects."
+			},
+			"formats": {
+				"question": "What image formats are supported?",
+				"answer": "We support JPG, JPEG, PNG, WebP, BMP, and GIF formats. The output is always in PNG format with transparent background for maximum compatibility."
+			},
+			"fileSize": {
+				"question": "Is there a file size limit?",
+				"answer": "Yes, the maximum file size is 10MB per image. For best results, we recommend images with at least 500x500 pixels resolution."
+			},
+			"processingTime": {
+				"question": "How long does processing take?",
+				"answer": "Most images are processed within 3-10 seconds, depending on image complexity and server load. Complex images with intricate details may take slightly longer."
+			},
+			"privacy": {
+				"question": "Are my images stored on your servers?",
+				"answer": "No, we prioritize your privacy. Images are processed in real-time and automatically deleted from our servers immediately after processing. We never store or access your images."
+			},
+			"commercial": {
+				"question": "Can I use this for commercial purposes?",
+				"answer": "Yes, absolutely! Our service is free for both personal and commercial use. Perfect for e-commerce, marketing materials, and professional photography."
+			},
+			"imperfectResults": {
+				"question": "What if the result isn't perfect?",
+				"answer": "While our AI is highly accurate, results may vary based on image quality and complexity. For best results, use high-contrast images with clear subject separation from the background."
+			},
+			"reallyFree": {
+				"question": "Is this service really free?",
+				"answer": "Yes, completely free with no hidden costs, watermarks, or subscription fees. We believe in providing accessible AI tools for everyone."
+			}
+		},
+		"stillHaveQuestions": "Still have questions?",
+		"contactUs": "Feel free to reach out to us for any additional support or inquiries."
+	},
+	"footer": {
+		"description": "Professional AI-powered background removal tool. Free, fast, and secure for all your image editing needs.",
+		"features": "Features",
+		"useCases": "Use Cases",
+		"popularSearches": "Popular Searches",
+		"featureList": {
+			"aiBackgroundRemoval": "AI Background Removal",
+			"highQualityResults": "High Quality Results",
+			"multipleFormatsSupport": "Multiple Formats Support",
+			"mobileOptimized": "Mobile Optimized",
+			"privacyProtected": "Privacy Protected"
+		},
+		"useCaseList": {
+			"ecommerceProducts": "E-commerce Products",
+			"socialMediaContent": "Social Media Content",
+			"professionalPhotography": "Professional Photography",
+			"marketingMaterials": "Marketing Materials",
+			"graphicDesign": "Graphic Design"
+		},
+		"keywords": [
+			"remove background",
+			"background remover",
+			"transparent background",
+			"photo editor"
+		],
+		"copyright": "All rights reserved.",
+		"builtWith": "Built with ❤️ using Next.js, TypeScript, and Tailwind CSS",
+		"madeIn": "Made in Thailand",
+		"links": {
+			"contact": "Contact",
+			"api": "API"
+		}
+	},
+	"cta": {
+		"title": "Ready to Remove Backgrounds?",
+		"subtitle": "Join thousands of users who trust our AI-powered background removal tool.",
+		"button": "Start Removing Backgrounds"
+	},
+	"seo": {
+		"title": "AI Background Remover - Remove Background from Images Free",
+		"description": "Professional AI-powered background removal tool. Remove backgrounds from images instantly with high quality results. Free online background remover.",
+		"keywords": "background remover, remove background, AI background removal, photo editor, image editing, transparent background"
+	}
+}

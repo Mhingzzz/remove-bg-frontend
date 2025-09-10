@@ -1,0 +1,197 @@
+{
+	"common": {
+		"appName": "RemoveBG AI",
+		"tagline": "Removedor de Fondo Profesional",
+		"loading": "Cargando...",
+		"error": "Error",
+		"success": "Éxito",
+		"retry": "Reintentar",
+		"cancel": "Cancelar",
+		"download": "Descargar",
+		"upload": "Subir",
+		"processing": "Procesando...",
+		"done": "Hecho",
+		"free": "Gratis",
+		"fast": "IA Rápida",
+		"secure": "Seguro"
+	},
+	"hero": {
+		"title": "Removedor de Fondo con IA",
+		"subtitle": "Elimina fondos de imágenes al instante con tecnología de IA de vanguardia. Resultados de calidad profesional en segundos, completamente gratis.",
+		"features": {
+			"noWatermarks": "Sin Marcas de Agua",
+			"highQuality": "Alta Calidad",
+			"privacyProtected": "Privacidad Protegida"
+		},
+		"cta": "Comenzar a Eliminar Fondos"
+	},
+	"upload": {
+		"title": "Sube tu imagen",
+		"dragDrop": "Arrastra y suelta una imagen o haz clic para navegar",
+		"formats": "Formatos soportados: JPG, PNG, WebP, BMP, GIF",
+		"chooseFile": "Elegir Archivo",
+		"dropHere": "Suelta tu imagen aquí",
+		"releaseToUpload": "Suelta para subir",
+		"clickToChange": "Haz clic para cambiar imagen",
+		"clickToUploadDifferent": "Haz clic para subir una imagen diferente",
+		"uploadImage": "Sube tu imagen",
+		"dragDropOrClick": "Arrastra y suelta una imagen o haz clic para navegar",
+		"supportedFormats": "Formatos soportados: JPG, PNG, WebP, BMP, GIF",
+		"maxSize": "Tamaño máximo: 10MB",
+		"processing": "Procesando...",
+		"uploadSuccess": "¡Fondo eliminado exitosamente!",
+		"uploadError": "Falló al procesar la imagen. Por favor intenta de nuevo.",
+		"fileSizeError": "El tamaño del archivo debe ser menor a 10MB",
+		"fileTypeError": "Por favor sube un archivo de imagen",
+		"errors": {
+			"fileTooLarge": "El tamaño del archivo debe ser menor a 10MB",
+			"invalidFormat": "Por favor sube un archivo de imagen",
+			"uploadFailed": "Falló la subida. Por favor intenta de nuevo."
+		}
+	},
+	"comparison": {
+		"processing": "Procesando...",
+		"originalImage": "Imagen Original",
+		"clickToUpload": "Haz clic para subir nueva imagen",
+		"showComparison": "Mostrar Comparación",
+		"hideComparison": "Ocultar Comparación",
+		"interactiveComparison": "Comparación Interactiva",
+		"dragSlider": "Arrastra el deslizador para comparar",
+		"original": "Original",
+		"backgroundRemoved": "Fondo Eliminado"
+	},
+	"processing": {
+		"title": "Procesando...",
+		"description": "Nuestra IA está eliminando el fondo de tu imagen",
+		"success": "¡Fondo eliminado exitosamente!",
+		"failed": "Falló al procesar la imagen. Por favor intenta de nuevo."
+	},
+	"results": {
+		"title": "Resultados",
+		"original": "Original",
+		"processed": "Fondo Eliminado",
+		"showComparison": "Mostrar Comparación",
+		"hideComparison": "Ocultar Comparación",
+		"interactiveComparison": "Comparación Interactiva",
+		"dragToCompare": "Arrastra el deslizador para comparar",
+		"downloadResult": "Descargar Resultado",
+		"downloadComparison": "Descargar Comparación",
+		"uploadNewImage": "Subir Nueva Imagen",
+		"downloadStarted": "¡Descarga iniciada!",
+		"downloadFailed": "Descarga fallida",
+		"comparisonDownloaded": "¡Comparación descargada!",
+		"comparisonDownloadFailed": "Falló al descargar comparación"
+	},
+	"features": {
+		"title": "¿Por Qué Elegir Nuestro Removedor de Fondo?",
+		"subtitle": "Eliminación de fondo de grado profesional impulsada por tecnología de IA de vanguardia. Perfecto para comercio electrónico, redes sociales y proyectos creativos.",
+		"items": {
+			"aiPowered": {
+				"title": "Precisión con IA",
+				"description": "Algoritmos avanzados de IA aseguran una eliminación perfecta del fondo con detección natural de bordes."
+			},
+			"lightningFast": {
+				"title": "Súper Rápido",
+				"description": "Procesa tus imágenes en segundos con nuestra infraestructura en la nube optimizada."
+			},
+			"privacyProtected": {
+				"title": "Privacidad Protegida",
+				"description": "Tus imágenes se procesan de forma segura y se eliminan inmediatamente después del procesamiento."
+			},
+			"mobileOptimized": {
+				"title": "Optimizado para Móviles",
+				"description": "Experiencia perfecta en todos los dispositivos - escritorio, tablet y móvil."
+			},
+			"multipleFormats": {
+				"title": "Múltiples Formatos",
+				"description": "Soporte para JPG, PNG, WebP y más formatos de imagen."
+			},
+			"completelyFree": {
+				"title": "Completamente Gratis",
+				"description": "Sin marcas de agua, sin suscripciones, sin tarifas ocultas. Gratis para siempre."
+			}
+		}
+	},
+	"faq": {
+		"title": "Preguntas Frecuentes",
+		"items": {
+			"accuracy": {
+				"question": "¿Qué tan precisa es la eliminación de fondo con IA?",
+				"answer": "Nuestra IA logra más del 95% de precisión con algoritmos avanzados de detección de bordes. Funciona mejor con contraste claro entre sujeto y fondo y maneja elementos complejos como cabello, pelaje y objetos transparentes."
+			},
+			"formats": {
+				"question": "¿Qué formatos de imagen son soportados?",
+				"answer": "Soportamos formatos JPG, JPEG, PNG, WebP, BMP y GIF. La salida siempre es en formato PNG con fondo transparente para máxima compatibilidad."
+			},
+			"fileSize": {
+				"question": "¿Hay un límite de tamaño de archivo?",
+				"answer": "Sí, el tamaño máximo de archivo es 10MB por imagen. Para mejores resultados, recomendamos imágenes con al menos 500x500 píxeles de resolución."
+			},
+			"processingTime": {
+				"question": "¿Cuánto tiempo toma el procesamiento?",
+				"answer": "La mayoría de imágenes se procesan en 3-10 segundos, dependiendo de la complejidad de la imagen y la carga del servidor. Imágenes complejas con detalles intrincados pueden tomar un poco más."
+			},
+			"privacy": {
+				"question": "¿Se almacenan mis imágenes en sus servidores?",
+				"answer": "No, priorizamos tu privacidad. Las imágenes se procesan en tiempo real y se eliminan automáticamente de nuestros servidores inmediatamente después del procesamiento. Nunca almacenamos o accedemos a tus imágenes."
+			},
+			"commercial": {
+				"question": "¿Puedo usar esto para propósitos comerciales?",
+				"answer": "¡Sí, absolutamente! Nuestro servicio es gratuito tanto para uso personal como comercial. Perfecto para comercio electrónico, materiales de marketing y fotografía profesional."
+			},
+			"imperfectResults": {
+				"question": "¿Qué pasa si el resultado no es perfecto?",
+				"answer": "Aunque nuestra IA es altamente precisa, los resultados pueden variar según la calidad e complejidad de la imagen. Para mejores resultados, usa imágenes de alto contraste con separación clara del sujeto del fondo."
+			},
+			"reallyFree": {
+				"question": "¿Es realmente gratuito este servicio?",
+				"answer": "Sí, completamente gratuito sin costos ocultos, marcas de agua o tarifas de suscripción. Creemos en proporcionar herramientas de IA accesibles para todos."
+			}
+		},
+		"stillHaveQuestions": "¿Aún tienes preguntas?",
+		"contactUs": "No dudes en contactarnos para cualquier soporte adicional o consultas."
+	},
+	"footer": {
+		"description": "Herramienta de eliminación de fondo con IA profesional. Gratis, rápida y segura para todas tus necesidades de edición de imágenes.",
+		"features": "Características",
+		"useCases": "Casos de Uso",
+		"popularSearches": "Búsquedas Populares",
+		"featureList": {
+			"aiBackgroundRemoval": "Eliminación de Fondo con IA",
+			"highQualityResults": "Resultados de Alta Calidad",
+			"multipleFormatsSupport": "Soporte de Múltiples Formatos",
+			"mobileOptimized": "Optimizado para Móviles",
+			"privacyProtected": "Privacidad Protegida"
+		},
+		"useCaseList": {
+			"ecommerceProducts": "Productos de Comercio Electrónico",
+			"socialMediaContent": "Contenido de Redes Sociales",
+			"professionalPhotography": "Fotografía Profesional",
+			"marketingMaterials": "Materiales de Marketing",
+			"graphicDesign": "Diseño Gráfico"
+		},
+		"keywords": [
+			"eliminar fondo",
+			"removedor de fondo",
+			"fondo transparente",
+			"editor de fotos"
+		],
+		"copyright": "Todos los derechos reservados.",
+		"builtWith": "Hecho con ❤️ usando Next.js, TypeScript y Tailwind CSS",
+		"madeIn": "Hecho en Tailandia",
+		"links": {
+			"contact": "Contacto",
+			"api": "API"
+		}
+	},
+	"cta": {
+		"title": "¿Listo para Eliminar Fondos?",
+		"subtitle": "Únete a miles de usuarios que confían en nuestra herramienta de eliminación de fondo con IA.",
+		"button": "Comenzar a Eliminar Fondos"
+	},
+	"seo": {
+		"title": "Removedor de Fondo IA - Eliminar Fondo de Imágenes Gratis",
+		"description": "Herramienta de eliminación de fondo con IA profesional. Elimina fondos de imágenes al instante con resultados de alta calidad. Removedor de fondo en línea gratuito.",
+		"keywords": "removedor de fondo, eliminar fondo, eliminación de fondo IA, editor de fotos, edición de imágenes, fondo transparente"
+	}
+}

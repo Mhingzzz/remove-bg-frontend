@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import StructuredData from "./components/StructuredData";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -66,18 +67,20 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen`}
 			>
-				<StructuredData />
-				{children}
-				<Toaster
-					position="top-right"
-					toastOptions={{
-						duration: 4000,
-						style: {
-							background: "#363636",
-							color: "#fff",
-						},
-					}}
-				/>
+				<LanguageProvider>
+					<StructuredData />
+					{children}
+					<Toaster
+						position="top-right"
+						toastOptions={{
+							duration: 4000,
+							style: {
+								background: "#363636",
+								color: "#fff",
+							},
+						}}
+					/>
+				</LanguageProvider>
 			</body>
 		</html>
 	);

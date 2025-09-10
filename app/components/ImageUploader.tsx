@@ -5,6 +5,7 @@ import { useDropzone } from "react-dropzone";
 import { motion } from "framer-motion";
 import { CloudArrowUpIcon, PhotoIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface ImageUploaderProps {
 	onImageUpload: (file: File, preview: string) => void;
@@ -16,6 +17,7 @@ export default function ImageUploader({
 	isProcessing,
 }: ImageUploaderProps) {
 	const [preview, setPreview] = useState<string | null>(null);
+	const { t } = useLanguage();
 
 	const onDrop = useCallback(
 		(acceptedFiles: File[]) => {
@@ -23,15 +25,13 @@ export default function ImageUploader({
 			if (file) {
 				// Validate file size (max 10MB)
 				if (file.size > 10 * 1024 * 1024) {
-					toast.error(
-						"File size must be less than 10MB / ขนาดไฟล์ต้องน้อยกว่า 10MB"
-					);
+					toast.error(t("upload.fileSizeError"));
 					return;
 				}
 
 				// Validate file type
 				if (!file.type.startsWith("image/")) {
-					toast.error("Please upload an image file / กรุณาอัปโหลดไฟล์รูปภาพ");
+					toast.error(t("upload.fileTypeError"));
 					return;
 				}
 
@@ -94,13 +94,13 @@ export default function ImageUploader({
 									className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity"
 								>
 									<span className="text-white font-medium">
-										Click to change image
+										{t("upload.clickToChange")}
 									</span>
 								</motion.div>
 							)}
 						</div>
 						<p className="text-sm text-gray-600 dark:text-gray-400">
-							Click to upload a different image / คลิกเพื่ือเปลี่ยนรูปภาพ
+							{t("upload.clickToUploadDifferent")}
 						</p>
 					</div>
 				) : (
@@ -118,18 +118,18 @@ export default function ImageUploader({
 
 						<div className="space-y-2">
 							<h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-								{isDragActive ? "Drop your image here" : "Upload your image"}
+								{isDragActive ? t("upload.dropHere") : t("upload.uploadImage")}
 							</h3>
 							<p className="text-gray-600 dark:text-gray-400">
 								{isDragActive
-									? "Release to upload / ปล่อยเพื่ออัปโหลด"
-									: "Drag & drop an image or click to browse / ลากวางหรือคลิกเพื่อเลือกรูปภาพ"}
+									? t("upload.releaseToUpload")
+									: t("upload.dragDropOrClick")}
 							</p>
 						</div>
 
 						<div className="text-sm text-gray-500 dark:text-gray-500">
-							<p>Supported formats: JPG, PNG, WebP, BMP, GIF</p>
-							<p>Maximum size: 10MB / ขนาดสูงสุด: 10MB</p>
+							<p>{t("upload.supportedFormats")}</p>
+							<p>{t("upload.maxSize")}</p>
 						</div>
 
 						<label
@@ -140,7 +140,7 @@ export default function ImageUploader({
 							tabIndex={0}
 							aria-disabled={isProcessing}
 						>
-							Choose File / เลือกไฟล์
+							{t("upload.chooseFile")}
 						</label>
 					</div>
 				)}
@@ -155,7 +155,7 @@ export default function ImageUploader({
 					<div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
 						<div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
 						<span className="text-blue-800 dark:text-blue-200 font-medium">
-							Processing... / กำลังประมวลผล...
+							{t("upload.processing")}
 						</span>
 					</div>
 				</motion.div>
