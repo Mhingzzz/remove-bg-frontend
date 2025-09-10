@@ -70,8 +70,6 @@
 		"title": "Resultados",
 		"original": "Original",
 		"processed": "Fondo Eliminado",
-		"showComparison": "Mostrar Comparación",
-		"hideComparison": "Ocultar Comparación",
 		"interactiveComparison": "Comparación Interactiva",
 		"dragToCompare": "Arrastra el deslizador para comparar",
 		"downloadResult": "Descargar Resultado",

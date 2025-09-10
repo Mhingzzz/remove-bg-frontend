@@ -56,10 +56,21 @@ export default function ImageUploader({
 		disabled: isProcessing,
 	});
 
+	// Get dropzone props but extract only the needed ones to avoid conflicts
+	const dropzoneProps = getRootProps();
+
 	return (
 		<div className="w-full max-w-2xl mx-auto">
 			<motion.div
-				// {...getRootProps()}
+				onClick={dropzoneProps.onClick}
+				onKeyDown={dropzoneProps.onKeyDown}
+				onDragOver={dropzoneProps.onDragOver}
+				onDragEnter={dropzoneProps.onDragEnter}
+				onDragLeave={dropzoneProps.onDragLeave}
+				onDrop={dropzoneProps.onDrop}
+				tabIndex={dropzoneProps.tabIndex}
+				role={dropzoneProps.role}
+				ref={dropzoneProps.ref}
 				className={`
           relative border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer
           transition-all duration-300 ease-in-out
@@ -73,11 +84,7 @@ export default function ImageUploader({
 				whileHover={{ scale: isProcessing ? 1 : 1.02 }}
 				whileTap={{ scale: isProcessing ? 1 : 0.98 }}
 			>
-				<input
-					id="file-upload"
-					{...getInputProps()}
-					style={{ display: "none" }}
-				/>
+				<input {...getInputProps()} style={{ display: "none" }} />
 
 				{preview ? (
 					<div className="space-y-4">

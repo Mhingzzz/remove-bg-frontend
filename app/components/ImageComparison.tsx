@@ -25,7 +25,7 @@ export default function ImageComparison({
 }: ImageComparisonProps) {
 	const [sliderPosition, setSliderPosition] = useState(50);
 	const [isDragging, setIsDragging] = useState(false);
-	const [showComparison, setShowComparison] = useState(false);
+	const [showComparison, setShowComparison] = useState(true);
 	const containerRef = useRef<HTMLDivElement>(null);
 	const comparisonRef = useRef<HTMLDivElement>(null);
 	const { t } = useLanguage();
@@ -112,8 +112,11 @@ export default function ImageComparison({
 				>
 					<ArrowsRightLeftIcon className="h-5 w-5" />
 					<span>
-						{showComparison ? "Hide Comparison" : "Show Comparison"}
-						{showComparison ? " / ซ่อนการเปรียบเทียบ" : " / แสดงการเปรียบเทียบ"}
+						{showComparison
+							? t("comparison.hideComparison")
+							: t("comparison.showComparison")}
+						{/* {showComparison ? "Hide Comparison" : "Show Comparison"}
+						{showComparison ? " / ซ่อนการเปรียบเทียบ" : " / แสดงการเปรียบเทียบ"} */}
 					</span>
 				</motion.button>
 			</div>
@@ -168,22 +171,22 @@ export default function ImageComparison({
 							className="space-y-3"
 						>
 							<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
-								Original / ต้นฉบับ
+								{t("comparison.original")}
 							</h3>
 							<div
-								className="relative group cursor-pointer"
+								className="relative group cursor-pointer aspect-square"
 								onClick={onResetImages}
 							>
 								<img
 									src={originalImage}
 									alt="Original"
-									className="w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+									className="w-full h-full object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
 								<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 									<div className="bg-white/90 dark:bg-gray-800/90 rounded-lg px-4 py-2">
 										<span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-											Click to upload new image
+											{t("comparison.clickToUpload")}
 										</span>
 									</div>
 								</div>
@@ -207,20 +210,18 @@ export default function ImageComparison({
 							className="space-y-3"
 						>
 							<h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white">
-								Background Removed / ลบพื้นหลังแล้ว
+								{t("comparison.backgroundRemoved")}
 							</h3>
-							<div className="relative group">
-								<div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg p-4">
-									<img
-										src={processedImage}
-										alt="Processed"
-										className="w-full rounded-lg shadow-lg"
-										style={{
-											background:
-												"repeating-conic-gradient(#f0f0f0 0% 25%, transparent 0% 50%) 50% / 20px 20px",
-										}}
-									/>
-								</div>
+							<div className="relative group aspect-square bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg">
+								<img
+									src={processedImage}
+									alt="Processed"
+									className="w-full h-full object-cover rounded-lg shadow-lg"
+									style={{
+										background:
+											"repeating-conic-gradient(#f0f0f0 0% 25%, transparent 0% 50%) 50% / 20px 20px",
+									}}
+								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
 								<motion.button
 									whileHover={{ scale: 1.1 }}
@@ -329,7 +330,7 @@ export default function ImageComparison({
 						className="flex items-center space-x-2 px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
 					>
 						<ArrowDownTrayIcon className="h-5 w-5" />
-						<span>Download Result / ดาวน์โหลดผลลัพธ์</span>
+						<span>{t("common.download")}</span>
 					</motion.button>
 				</motion.div>
 			)}

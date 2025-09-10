@@ -70,8 +70,6 @@
 		"title": "ผลลัพธ์",
 		"original": "ต้นฉบับ",
 		"processed": "ลบพื้นหลังแล้ว",
-		"showComparison": "แสดงการเปรียบเทียบ",
-		"hideComparison": "ซ่อนการเปรียบเทียบ",
 		"interactiveComparison": "เปรียบเทียบแบบโต้ตอบ",
 		"dragToCompare": "ลากเส้นเลื่อนเพื่อเปรียบเทียบ",
 		"downloadResult": "ดาวน์โหลดผลลัพธ์",

@@ -1,4 +1,4 @@
-# RemoveBG AI - Professional Background Remover
+# RemoveBG - Professional Background Remover
 
 A modern, AI-powered background removal application built with Next.js, TypeScript, and Tailwind CSS. Features bilingual support (English/Thai), advanced animations, and a professional user interface.
 

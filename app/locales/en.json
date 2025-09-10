@@ -58,7 +58,8 @@
 		"interactiveComparison": "Interactive Comparison",
 		"dragSlider": "Drag the slider to compare",
 		"original": "Original",
-		"backgroundRemoved": "Background Removed"
+		"backgroundRemoved": "Background Removed",
+		"processed": "Processed"
 	},
 	"processing": {
 		"title": "Processing...",
@@ -70,8 +71,6 @@
 		"title": "Results",
 		"original": "Original",
 		"processed": "Background Removed",
-		"showComparison": "Show Comparison",
-		"hideComparison": "Hide Comparison",
 		"interactiveComparison": "Interactive Comparison",
 		"dragToCompare": "Drag the slider to compare",
 		"downloadResult": "Download Result",

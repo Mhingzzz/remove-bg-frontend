@@ -120,7 +120,7 @@ export default function Home() {
 					</motion.div>
 
 					<div className="flex items-center space-x-4">
-						<motion.div
+						{/* <motion.div
 							initial={{ opacity: 0, x: 20 }}
 							animate={{ opacity: 1, x: 0 }}
 							className="hidden md:flex items-center space-x-6"
@@ -139,7 +139,7 @@ export default function Home() {
 									<span>{t("common.free")}</span>
 								</div>
 							</div>
-						</motion.div>
+						</motion.div> */}
 						<LanguageSwitcher variant="compact" />
 					</div>
 				</div>
