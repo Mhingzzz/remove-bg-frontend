@@ -44,7 +44,7 @@ export default function ImageUploader({
 				reader.readAsDataURL(file);
 			}
 		},
-		[onImageUpload]
+		[onImageUpload, t]
 	);
 
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({

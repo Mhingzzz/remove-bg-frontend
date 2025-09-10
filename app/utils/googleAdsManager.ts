@@ -14,6 +14,13 @@ export interface AdConfiguration {
   };
 }
 
+export interface AdPerformanceData {
+  impressions: number;
+  clicks: number;
+  revenue: number;
+  ctr: number;
+}
+
 class GoogleAdsManager {
   private static config: AdConfiguration = {
     enabled: process.env.NODE_ENV === 'production' && 
@@ -83,7 +90,7 @@ class GoogleAdsManager {
   /**
    * Get ad performance data (if available)
    */
-  static getAdPerformance(): any {
+  static getAdPerformance(): AdPerformanceData {
     // This would integrate with Google Ad Manager or Analytics
     // For now, return placeholder data
     return {

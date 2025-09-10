@@ -75,21 +75,21 @@ export function LanguageProvider({
 		const translations = LANGUAGES[currentLanguage].translations;
 		const keys = key.split(".");
 
-		let value: any = translations;
+		let value: Record<string, unknown> | string = translations;
 		for (const k of keys) {
 			if (value && typeof value === "object" && k in value) {
-				value = value[k];
+				value = value[k as keyof typeof value] as Record<string, unknown> | string;
 			} else {
 				// Fallback to English if key not found
 				const enTranslations = LANGUAGES.en.translations;
-				let fallbackValue: any = enTranslations;
+				let fallbackValue: Record<string, unknown> | string = enTranslations;
 				for (const fallbackK of keys) {
 					if (
 						fallbackValue &&
 						typeof fallbackValue === "object" &&
 						fallbackK in fallbackValue
 					) {
-						fallbackValue = fallbackValue[fallbackK];
+						fallbackValue = fallbackValue[fallbackK as keyof typeof fallbackValue] as Record<string, unknown> | string;
 					} else {
 						return key; // Return key if not found in fallback
 					}
@@ -125,6 +125,11 @@ export function useLanguage(): LanguageContextType {
 }
 
 // Utility function to get nested object values
-export function getNestedValue(obj: any, path: string): any {
-	return path.split(".").reduce((current, key) => current?.[key], obj);
+export function getNestedValue(obj: Record<string, unknown>, path: string): unknown {
+	return path.split(".").reduce((current: unknown, key) => {
+		if (current && typeof current === "object" && key in (current as Record<string, unknown>)) {
+			return (current as Record<string, unknown>)[key];
+		}
+		return undefined;
+	}, obj);
 }

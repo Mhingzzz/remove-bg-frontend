@@ -1,28 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-	SparklesIcon,
-	BoltIcon,
-	ShieldCheckIcon,
-} from "@heroicons/react/24/outline";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 
 // Components
 import ImageUploader from "./components/ImageUploader";
 import ImageComparison from "./components/ImageComparison";
 import FeatureSection from "./components/FeatureSection";
-import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import {
 	HeaderAd,
 	ContentAd,
-	SidebarAd,
 	FooterAd,
 	MobileBannerAd,
 } from "./components/AdPlacement";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // Hooks and utilities
 import { useLanguage } from "./contexts/LanguageContext";
@@ -44,8 +38,6 @@ export default function Home() {
 	const {
 		trackFileUpload,
 		trackProcessingComplete,
-		trackImageDownload,
-		trackFeatureInteraction,
 		trackError,
 	} = useGoogleAds();
 
@@ -78,7 +70,8 @@ export default function Home() {
 			const formData = new FormData();
 			formData.append("file", file);
 
-			const response = await fetch("http://localhost:8000/remove-bg", {
+			// Use the Next.js API route instead of direct backend call
+			const response = await fetch("/api/remove-bg", {
 				method: "POST",
 				body: formData,
 			});
@@ -185,7 +178,8 @@ export default function Home() {
 				</div>
 			</header>
 
-			{/* Header Ad */}
+			{/* Header Ad if want to shwo just enabled={true}*/}
+			{/* <HeaderAd enabled={true} /> */}
 			<HeaderAd />
 
 			{/* Hero Section */}

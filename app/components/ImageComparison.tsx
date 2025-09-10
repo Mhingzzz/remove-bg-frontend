@@ -6,7 +6,6 @@ import {
 	ArrowDownTrayIcon,
 	ArrowsRightLeftIcon,
 } from "@heroicons/react/24/outline";
-import html2canvas from "html2canvas";
 import toast from "react-hot-toast";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -78,31 +77,8 @@ export default function ImageComparison({
 			}
 
 			toast.success("Download started! / เริ่มดาวน์โหลดแล้ว!");
-		} catch (error) {
+		} catch {
 			toast.error("Download failed / ดาวน์โหลดล้มเหลว");
-		}
-	};
-
-	const downloadComparison = async () => {
-		if (!comparisonRef.current) return;
-
-		try {
-			const canvas = await html2canvas(comparisonRef.current, {
-				allowTaint: true,
-				useCORS: true,
-				scale: 2,
-			});
-
-			const link = document.createElement("a");
-			link.download = "background-removal-comparison.png";
-			link.href = canvas.toDataURL();
-			link.click();
-
-			toast.success("Comparison downloaded! / ดาวน์โหลดการเปรียบเทียบแล้ว!");
-		} catch (error) {
-			toast.error(
-				"Failed to download comparison / ไม่สามารถดาวน์โหลดการเปรียบเทียบได้"
-			);
 		}
 	};
 

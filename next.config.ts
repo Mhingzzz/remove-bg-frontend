@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
 	compress: true,
 	poweredByHeader: false,
 
+	// API rewrites for backend proxy
+	async rewrites() {
+		return [
+			{
+				source: '/api/backend/:path*',
+				destination: 'http://localhost:8000/:path*',
+			},
+		];
+	},
+
 	// Security headers
 	async headers() {
 		return [

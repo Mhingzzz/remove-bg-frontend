@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
 	CurrencyDollarIcon,
 	EyeIcon,
@@ -11,7 +10,6 @@ import {
 	CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import GoogleAdsManager from "../utils/googleAdsManager";
-import GoogleAdsTracking from "../utils/googleAdsTracking";
 
 interface AdPerformanceData {
 	impressions: number;
@@ -216,7 +214,7 @@ export default function GoogleAdsDashboard() {
 				{/* Performance Metrics */}
 				<div className="space-y-2">
 					<h4 className="text-sm font-medium text-gray-700">
-						Today's Performance
+						Today&apos;s Performance
 					</h4>
 					{performance.isLoading ? (
 						<div className="animate-pulse space-y-2">

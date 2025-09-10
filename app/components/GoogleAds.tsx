@@ -9,10 +9,16 @@ interface GoogleAdsProps {
 	enabled?: boolean;
 }
 
+// Google Analytics/Ads types
+type GtagCommand = 'config' | 'event' | 'js' | 'set';
+type GtagEventParams = {
+	[key: string]: string | number | boolean;
+};
+
 declare global {
 	interface Window {
-		adsbygoogle: any[];
-		gtag: (...args: any[]) => void;
+		adsbygoogle: Record<string, unknown>[];
+		gtag: (command: GtagCommand, target: string, params?: GtagEventParams) => void;
 	}
 }
 
