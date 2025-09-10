@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+	// Output configuration for Docker
+	output: "standalone",
+
 	// Enable experimental features for better performance
 	experimental: {
 		optimizeCss: true,
