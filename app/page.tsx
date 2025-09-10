@@ -15,10 +15,22 @@ import FeatureSection from "./components/FeatureSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import LanguageSwitcher from "./components/LanguageSwitcher";
-import { useState } from "react";
+import {
+	HeaderAd,
+	ContentAd,
+	SidebarAd,
+	FooterAd,
+	MobileBannerAd,
+} from "./components/AdPlacement";
+import { useState, useEffect } from "react";
 
-// i18n
+// Hooks and utilities
 import { useLanguage } from "./contexts/LanguageContext";
+import {
+	useGoogleAds,
+	useScrollTracking,
+	useTimeTracking,
+} from "./hooks/useGoogleAds";
 
 interface ProcessingState {
 	isProcessing: boolean;
@@ -29,6 +41,18 @@ interface ProcessingState {
 
 export default function Home() {
 	const { t } = useLanguage();
+	const {
+		trackFileUpload,
+		trackProcessingComplete,
+		trackImageDownload,
+		trackFeatureInteraction,
+		trackError,
+	} = useGoogleAds();
+
+	// Initialize tracking hooks
+	useScrollTracking();
+	useTimeTracking();
+
 	const [state, setState] = useState<ProcessingState>({
 		isProcessing: false,
 		originalImage: null,
@@ -37,6 +61,9 @@ export default function Home() {
 	});
 
 	const handleImageUpload = async (file: File, preview: string) => {
+		// Track file upload start
+		trackFileUpload(file.size, file.type);
+
 		setState((prev) => ({
 			...prev,
 			isProcessing: true,
@@ -44,6 +71,8 @@ export default function Home() {
 			originalFile: file,
 			processedImage: null,
 		}));
+
+		const startTime = Date.now();
 
 		try {
 			const formData = new FormData();
@@ -60,12 +89,16 @@ export default function Home() {
 
 			const blob = await response.blob();
 			const processedUrl = URL.createObjectURL(blob);
+			const processingTime = (Date.now() - startTime) / 1000;
 
 			setState((prev) => ({
 				...prev,
 				processedImage: processedUrl,
 				isProcessing: false,
 			}));
+
+			// Track successful processing
+			trackProcessingComplete(processingTime);
 
 			toast.success(t("upload.uploadSuccess"));
 
@@ -78,6 +111,13 @@ export default function Home() {
 			}, 100);
 		} catch (error) {
 			console.error("Error processing image:", error);
+
+			// Track error
+			trackError(
+				"processing_failed",
+				error instanceof Error ? error.message : "Unknown error"
+			);
+
 			setState((prev) => ({
 				...prev,
 				isProcessing: false,
@@ -145,6 +185,9 @@ export default function Home() {
 				</div>
 			</header>
 
+			{/* Header Ad */}
+			<HeaderAd />
+
 			{/* Hero Section */}
 			<section className="py-16 px-4">
 				<div className="max-w-6xl mx-auto text-center">
@@ -192,6 +235,9 @@ export default function Home() {
 							isProcessing={state.isProcessing}
 						/>
 					</motion.div>
+
+					{/* Content Ad */}
+					<ContentAd />
 
 					{/* Results Section */}
 					{(state.originalImage || state.processedImage) && (
@@ -248,8 +294,17 @@ export default function Home() {
 				</div>
 			</section>
 
+			{/* Footer Ad */}
+			<FooterAd />
+
 			{/* Footer */}
 			<Footer />
+
+			{/* Mobile Banner Ad */}
+			<MobileBannerAd />
+
+			{/* Development Dashboard */}
+			{/* <GoogleAdsDashboard /> */}
 		</div>
 	);
 }

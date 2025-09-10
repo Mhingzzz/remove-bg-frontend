@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 
 	// Enable experimental features for better performance
 	experimental: {
-		optimizeCss: true,
+		optimizeCss: true, // Re-enabled - critters package now installed
 		optimizePackageImports: ["@heroicons/react", "framer-motion"],
 	},
 
@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
 				headers: [
 					{
 						key: "X-Frame-Options",
-						value: "DENY",
+						value: "SAMEORIGIN", // Allow Google Ads iframes
 					},
 					{
 						key: "X-Content-Type-Options",
@@ -42,6 +42,22 @@ const nextConfig: NextConfig = {
 					{
 						key: "Permissions-Policy",
 						value: "camera=(), microphone=(), geolocation=()",
+					},
+					// Content Security Policy that allows Google Ads
+					{
+						key: "Content-Security-Policy",
+						value: [
+							"default-src 'self'",
+							"script-src 'self' 'unsafe-eval' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://tpc.googlesyndication.com",
+							"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pagead2.googlesyndication.com",
+							"img-src 'self' blob: data: https: https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
+							"font-src 'self' https://fonts.gstatic.com",
+							"connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com https://region1.google-analytics.com",
+							"frame-src 'self' https://googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
+							"object-src 'none'",
+							"base-uri 'self'",
+							"form-action 'self'",
+						].join("; "),
 					},
 				],
 			},

@@ -15,6 +15,7 @@ interface ImageComparisonProps {
 	processedImage: string | null;
 	isProcessing: boolean;
 	onResetImages: () => void;
+	onDownload?: (format: string, fileSize: number) => void;
 }
 
 export default function ImageComparison({
@@ -22,6 +23,7 @@ export default function ImageComparison({
 	processedImage,
 	isProcessing,
 	onResetImages,
+	onDownload,
 }: ImageComparisonProps) {
 	const [sliderPosition, setSliderPosition] = useState(50);
 	const [isDragging, setIsDragging] = useState(false);
@@ -68,6 +70,12 @@ export default function ImageComparison({
 			link.click();
 			document.body.removeChild(link);
 			URL.revokeObjectURL(downloadUrl);
+
+			// Track download if callback is provided
+			if (onDownload) {
+				const format = filename.split('.').pop() || 'png';
+				onDownload(format, blob.size);
+			}
 
 			toast.success("Download started! / เริ่มดาวน์โหลดแล้ว!");
 		} catch (error) {

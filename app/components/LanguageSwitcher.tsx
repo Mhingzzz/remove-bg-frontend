@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, LanguageIcon } from "@heroicons/react/24/outline";
 import { useLanguage, type LanguageCode } from "../contexts/LanguageContext";
+import GoogleAdsTracking from "../utils/googleAdsTracking";
 
 interface LanguageSwitcherProps {
 	className?: string;
@@ -36,6 +37,11 @@ export default function LanguageSwitcher({
 	}, []);
 
 	const handleLanguageChange = (langCode: LanguageCode) => {
+		const previousLanguage = currentLanguage;
+		
+		// Track language change
+		GoogleAdsTracking.trackLanguageChange(previousLanguage, langCode);
+		
 		setLanguage(langCode);
 		setIsOpen(false);
 	};
