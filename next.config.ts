@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
 							"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pagead2.googlesyndication.com",
 							"img-src 'self' blob: data: https: https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
 							"font-src 'self' https://fonts.gstatic.com",
-							"connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com https://region1.google-analytics.com",
+							"connect-src 'self' blob: https://pagead2.googlesyndication.com https://www.google-analytics.com https://region1.google-analytics.com",
 							"frame-src 'self' https://googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
 							"object-src 'none'",
 							"base-uri 'self'",
