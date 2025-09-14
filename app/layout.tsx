@@ -6,7 +6,7 @@ import GoogleAds from "./components/GoogleAds";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
-
+import Script from "next/script";
 const geistSans = Geist({
 	variable: "--font-geist-sans",
 	subsets: ["latin"],
@@ -55,6 +55,9 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+	const isProduction = process.env.NODE_ENV === "production";
+	const shouldLoadAnalytics = isProduction && googleAnalyticsId;
 	return (
 		<html lang="en">
 			<head>
@@ -65,6 +68,21 @@ export default function RootLayout({
 				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 				<meta name="theme-color" content="#F75270" />
 				<link rel="icon" href="/favicon.ico" />
+				{shouldLoadAnalytics && (
+					<>
+						<Script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+						></Script>
+						<Script id="google-analytics">
+							{`window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', '${googleAnalyticsId}');`}
+						</Script>
+					</>
+				)}
 			</head>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-background to-secondary min-h-screen transition-colors duration-300`}

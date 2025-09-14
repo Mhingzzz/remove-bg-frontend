@@ -26,6 +26,7 @@ import {
 	useScrollTracking,
 	useTimeTracking,
 } from "./hooks/useGoogleAds";
+import Image from "next/image";
 
 interface ProcessingState {
 	isProcessing: boolean;
@@ -137,8 +138,13 @@ export default function Home() {
 						animate={{ opacity: 1, x: 0 }}
 						className="flex items-center space-x-2"
 					>
-						<div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-							<SparklesIcon className="h-6 w-6 text-white" />
+						<div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl relative overflow-hidden">
+							<Image
+								src="/logo.png"
+								alt="logo"
+								fill // makes the image fill the parent container
+								className="object-cover" // similar to CSS background-size: cover
+							/>
 						</div>
 						<div>
 							<h1 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -188,7 +194,7 @@ export default function Home() {
 						{/* Sidebar Left */}
 						<div className="lg:col-span-1">
 							<div className="sticky top-24 space-y-6">
-								<SidebarAd enabled={true} />
+								<SidebarAd />
 							</div>
 						</div>
 
@@ -272,7 +278,7 @@ export default function Home() {
 						{/* Sidebar Right */}
 						<div className="lg:col-span-1">
 							<div className="sticky top-24 space-y-6">
-								<SidebarAd enabled={true} />
+								<SidebarAd />
 							</div>
 						</div>
 					</div>

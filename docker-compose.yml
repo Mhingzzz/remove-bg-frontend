@@ -7,11 +7,25 @@ services:
       dockerfile: Dockerfile
       target: runner
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
+      # Backend Configuration
+      - BACKEND_URL=${BACKEND_URL:-http://localhost:8000}
+      # Google Ads Configuration
+      - NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=${NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}
+      - NEXT_PUBLIC_ADSENSE_HEADER_SLOT=${NEXT_PUBLIC_ADSENSE_HEADER_SLOT}
+      - NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT=${NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT}
+      - NEXT_PUBLIC_ADSENSE_CONTENT_SLOT=${NEXT_PUBLIC_ADSENSE_CONTENT_SLOT}
+      - NEXT_PUBLIC_ADSENSE_FOOTER_SLOT=${NEXT_PUBLIC_ADSENSE_FOOTER_SLOT}
+      - NEXT_PUBLIC_ADSENSE_MOBILE_SLOT=${NEXT_PUBLIC_ADSENSE_MOBILE_SLOT}
+      # Analytics Configuration
+      - NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
+    # Alternative: Use env_file for cleaner configuration
+    # env_file:
+    #   - .env.production
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
