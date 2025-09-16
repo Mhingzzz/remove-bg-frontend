@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 	description:
 		"Professional AI-powered background removal tool. Remove backgrounds from images instantly with high quality results. Free online background remover unlimited. | เครื่องมือลบพื้นหลังภาพด้วย AI ที่มีคุณภาพสูง ลบพื้นหลังได้ทันที ฟรีไม่จำกัด",
 	keywords:
-		"background remover, remove background, AI background removal, photo editor, image editing, transparent background, ลบพื้นหลัง, ลบพื้นหลังภาพ, แต่งรูป, ตัดพื้นหลัง , free background remover , ลบภาพพื้นหลังฟรีไม่จำกัด",
+		"background remover, remove background, AI background removal, photo editor, image editing, transparent background, ลบพื้นหลัง, ลบพื้นหลังภาพ, แต่งรูป, ตัดพื้นหลัง , free background remover , ลบภาพพื้นหลังฟรีไม่จำกัด ,ลบภาพพื้นหลัง , ลบภาพพื้นหลังฟรี",
 	openGraph: {
 		title: "AI Background Remover - Professional Photo Editing Tool",
 		description:
@@ -61,8 +61,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="alternate" hrefLang="en" href="/" />
-				<link rel="alternate" hrefLang="th" href="/th" />
+				<link rel="alternate" hrefLang="en" href="" />
+				<link rel="alternate" hrefLang="th" href="" />
 				<link rel="canonical" href="/" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -83,6 +83,11 @@ export default function RootLayout({
 						</Script>
 					</>
 				)}
+
+				<meta
+					name="google-site-verification"
+					content="yfe5WZG1j-__COpsKNqcWIsOTS8tbBMtD9ot4chmKpQ"
+				/>
 			</head>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-background to-secondary min-h-screen transition-colors duration-300`}

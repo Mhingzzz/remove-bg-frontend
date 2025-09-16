@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
+
+# Host
+Host: https://removebg-ai.usefulapps.app
+
+# Sitemaps
+Sitemap: https://removebg-ai.usefulapps.app/sitemap.xml
