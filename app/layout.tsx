@@ -19,23 +19,50 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title:
-		"RemoveBG AI - Remove Background from Images Free Unlimited | ลบพื้นหลังภาพ AI ฟรีไม่จำกัด",
+		"RemoveBG AI - Free Unlimited AI Background Remover | ลบพื้นหลังภาพฟรีไม่จำกัด",
 	description:
-		"Professional AI-powered background removal tool. Remove backgrounds from images instantly with high quality results. Free online background remover unlimited. | เครื่องมือลบพื้นหลังภาพด้วย AI ที่มีคุณภาพสูง ลบพื้นหลังได้ทันที ฟรีไม่จำกัด",
-	keywords:
-		"background remover, remove background, AI background removal, photo editor, image editing, transparent background, ลบพื้นหลัง, ลบพื้นหลังภาพ, แต่งรูป, ตัดพื้นหลัง , free background remover , ลบภาพพื้นหลังฟรีไม่จำกัด ,ลบภาพพื้นหลัง , ลบภาพพื้นหลังฟรี",
+		"RemoveBG AI is a professional AI-powered background removal tool. Remove backgrounds from images instantly with high-quality results. Free online unlimited background remover | เครื่องมือตัดพื้นหลังภาพด้วย AI คุณภาพสูง ใช้งานฟรีไม่จำกัด.",
+	keywords: [
+		"background remover",
+		"remove background",
+		"AI background removal",
+		"photo editor",
+		"image editing",
+		"transparent background",
+		"ลบพื้นหลัง",
+		"ลบพื้นหลังภาพ",
+		"แต่งรูป",
+		"ตัดพื้นหลัง",
+		"free background remover",
+		"ลบภาพพื้นหลังฟรีไม่จำกัด",
+		"ลบภาพพื้นหลัง",
+		"ลบภาพพื้นหลังฟรี",
+		"ตัดฉากหลัง",
+	],
 	openGraph: {
-		title: "AI Background Remover - Professional Photo Editing Tool",
+		title: "AI Background Remover - Free & Professional Online Tool",
 		description:
-			"Remove backgrounds from images instantly with our AI-powered tool. High quality, fast, and free.",
+			"Remove image backgrounds instantly with AI. Free unlimited background remover online. High quality, fast, and easy-to-use tool.",
+		url: "https://removebg-ai.usefulapps.app",
+		siteName: "RemoveBG AI",
 		type: "website",
 		locale: "en_US",
 		alternateLocale: ["th_TH"],
+		images: [
+			{
+				url: "https://removebg-ai.usefulapps.app/og-image.png", // Replace with your OG image
+				width: 1200,
+				height: 630,
+				alt: "RemoveBG AI - Free Unlimited Background Remover",
+			},
+		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "AI Background Remover",
-		description: "Professional AI-powered background removal tool",
+		title: "RemoveBG AI - Free Unlimited Background Remover",
+		description:
+			"Remove backgrounds from images instantly with our AI-powered tool. Free, fast, and high-quality background remover.",
+		images: ["https://removebg-ai.usefulapps.app/twitter-card.png"], // Replace with your Twitter card image
 	},
 	robots: {
 		index: true,
@@ -48,8 +75,14 @@ export const metadata: Metadata = {
 			"max-snippet": -1,
 		},
 	},
+	alternates: {
+		canonical: "https://removebg-ai.usefulapps.app",
+		languages: {
+			"en-US": "https://removebg-ai.usefulapps.app",
+			// "th-TH": "https://removebg-ai.usefulapps.app/th",
+		},
+	},
 };
-
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -61,7 +94,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="alternate" hrefLang="en" href="" />
+				{/* <link rel="alternate" hrefLang="en" href="" /> */}
 				<link rel="alternate" hrefLang="th" href="" />
 				<link rel="canonical" href="/" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
