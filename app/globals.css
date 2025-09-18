@@ -12,6 +12,12 @@
 	--border: #e2e8f0;
 	--input: #f8fafc;
 	--ring: #3b82f6;
+	
+	/* Improved contrast colors */
+	--text-primary: #111827;    /* Very dark gray for better contrast */
+	--text-secondary: #374151;  /* Medium gray with good contrast */
+	--text-muted: #6b7280;      /* Lighter but still accessible gray */
+	--text-on-dark: #ffffff;    /* White text on dark backgrounds */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +33,12 @@
 		--border: #334155;
 		--input: #1e293b;
 		--ring: #3b82f6;
+		
+		/* Dark mode contrast colors */
+		--text-primary: #f9fafb;    /* Near white for dark backgrounds */
+		--text-secondary: #e5e7eb;  /* Light gray with good contrast */
+		--text-muted: #9ca3af;      /* Medium gray, still accessible */
+		--text-on-dark: #ffffff;    /* White text */
 	}
 }
 

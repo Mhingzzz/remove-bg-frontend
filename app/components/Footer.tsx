@@ -28,11 +28,11 @@ export default function Footer() {
 							</div>
 							<h3 className="text-xl font-bold">RemoveBG AI</h3>
 						</div>
-						<p className="text-gray-400 text-sm leading-relaxed">
+						<p className="text-gray-300 text-sm leading-relaxed">
 							Professional AI-powered background removal tool. Free, fast, and
 							secure for all your image editing needs.
 						</p>
-						<p className="text-gray-500 text-xs leading-relaxed">
+						<p className="text-gray-400 text-xs leading-relaxed">
 							เครื่องมือลบพื้นหลังด้วย AI ระดับมืออาชีพ ฟรี เร็ว
 							และปลอดภัยสำหรับทุกความต้องการในการแต่งภาพ
 						</p>

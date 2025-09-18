@@ -75,13 +75,13 @@ export const metadata: Metadata = {
 			"max-snippet": -1,
 		},
 	},
-	alternates: {
-		canonical: "https://removebg-ai.usefulapps.app",
-		languages: {
-			"en-US": "https://removebg-ai.usefulapps.app",
-			// "th-TH": "https://removebg-ai.usefulapps.app/th",
-		},
-	},
+	// alternates: {
+	// 	canonical: "https://removebg-ai.usefulapps.app",
+	// 	languages: {
+	// 		"en-US": "https://removebg-ai.usefulapps.app",
+	// 		// "th-TH": "https://removebg-ai.usefulapps.app/th",
+	// 	},
+	// },
 };
 export default function RootLayout({
 	children,
@@ -92,11 +92,11 @@ export default function RootLayout({
 	const isProduction = process.env.NODE_ENV === "production";
 	const shouldLoadAnalytics = isProduction && googleAnalyticsId;
 	return (
-		<html lang="en">
+		<html lang="th">
 			<head>
 				{/* <link rel="alternate" hrefLang="en" href="" /> */}
-				<link rel="alternate" hrefLang="th" href="" />
-				<link rel="canonical" href="/" />
+				<link rel="alternate" hrefLang="th" href="/" />
+				<link rel="canonical" href="https://removebg-ai.usefulapps.app" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
 				<meta name="theme-color" content="#F75270" />

@@ -124,17 +124,17 @@ export default function ImageUploader({
 						</motion.div>
 
 						<div className="space-y-2">
-							<h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+							<h2 className="text-xl font-semibold text-gray-900 dark:text-white">
 								{isDragActive ? t("upload.dropHere") : t("upload.uploadImage")}
-							</h3>
-							<p className="text-gray-600 dark:text-gray-400">
+							</h2>
+							<p className="text-gray-700 dark:text-gray-300">
 								{isDragActive
 									? t("upload.releaseToUpload")
 									: t("upload.dragDropOrClick")}
 							</p>
 						</div>
 
-						<div className="text-sm text-gray-500 dark:text-gray-500">
+						<div className="text-sm text-gray-600 dark:text-gray-400">
 							<p>{t("upload.supportedFormats")}</p>
 							<p>{t("upload.maxSize")}</p>
 						</div>

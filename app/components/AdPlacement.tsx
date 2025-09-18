@@ -103,8 +103,8 @@ const AdPlacement: React.FC<AdPlacementProps> = ({
 		<div
 			className={`ad-placement ad-placement-${position} ${adConfig.className}`}
 		>
-			{/* Ad label for transparency */}
-			<div className="text-xs text-gray-400 text-center mb-1">
+			{/* Ad label for transparency - improved contrast */}
+			<div className="text-xs text-gray-600 dark:text-gray-400 text-center mb-1">
 				Advertisement
 			</div>
 
